@@ -2,5 +2,5 @@
 
 JDK: Amazon coretto 1.8.0
 
-Required libraries inside src projects root 
+Required libraries inside projects root 
  - SQLite connector
