@@ -6,12 +6,15 @@ import java.sql.SQLException;
 
 public class SqliteConnection {
     public static Connection connect() {
-        String url = "jdbc:sqlite:server-cashiers-db";
         Connection conn = null;
         try {
+            Class.forName("org.sqlite.JDBC");
+            String url = "jdbc:sqlite:server-cashiers-db";
             conn = DriverManager.getConnection(url);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
         return conn;
     }
